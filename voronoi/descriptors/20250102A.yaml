@@ -1,0 +1,534 @@
+# local_topological_descriptors = list[list[tplgcl_dscrptr, save_result, return_result]]
+# type(local_topological_descriptors) = list[list[str, bool, bool]]
+# global_topological_descriptors = list[list[tplgcl_dscrptr, np_oprtn, save_result, return_result]]
+# type(global_topological_descriptors) = list[list[str, str, bool, bool]]
+# global_morphological_descriptors = list[list[mrphlgcl_dscrptr, save_result, return_result]]
+# type(global_morphological_descriptors) = list[list[str, bool, bool]]
+local_topological_descriptors:
+  -
+    - "k"
+    - True
+    - False
+  -
+    - "avrg_nn_k"
+    - True
+    - False
+  -
+    - "avrg_k_diff"
+    - True
+    - False
+  -
+    - "c"
+    - True
+    - False
+  -
+    - "lcl_avrg_kappa"
+    - True
+    - False
+  -
+    - "epsilon"
+    - True
+    - False
+  -
+    - "l_attr_epsilon"
+    - True
+    - False
+  -
+    - "l_inv_attr_epsilon"
+    - True
+    - False
+  -
+    - "gamma_attr_epsilon"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_epsilon"
+    - True
+    - False
+  -
+    - "avrg_d"
+    - True
+    - False
+  -
+    - "avrg_l_attr_d"
+    - True
+    - False
+  -
+    - "avrg_l_inv_attr_d"
+    - True
+    - False
+  -
+    - "avrg_gamma_attr_d"
+    - True
+    - False
+  -
+    - "avrg_gamma_inv_attr_d"
+    - True
+    - False
+  -
+    - "avrg_e"
+    - True
+    - False
+  -
+    - "avrg_l_attr_e"
+    - True
+    - False
+  -
+    - "avrg_l_inv_attr_e"
+    - True
+    - False
+  -
+    - "avrg_gamma_attr_e"
+    - True
+    - False
+  -
+    - "avrg_gamma_inv_attr_e"
+    - True
+    - False
+  -
+    - "bc"
+    - True
+    - False
+  -
+    - "l_attr_bc"
+    - True
+    - False
+  -
+    - "l_inv_attr_bc"
+    - True
+    - False
+  -
+    - "gamma_attr_bc"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_bc"
+    - True
+    - False
+  -
+    - "cc"
+    - True
+    - False
+  -
+    - "l_attr_cc"
+    - True
+    - False
+  -
+    - "l_inv_attr_cc"
+    - True
+    - False
+  -
+    - "gamma_attr_cc"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_cc"
+    - True
+    - False
+  -
+    - "l"
+    - True
+    - False
+  -
+    - "l_inv"
+    - True
+    - False
+  -
+    - "l_cmpnts"
+    - True
+    - False
+  -
+    - "l_naive"
+    - True
+    - False
+  -
+    - "l_cntr"
+    - True
+    - False
+  -
+    - "gamma"
+    - True
+    - False
+  -
+    - "gamma_inv"
+    - True
+    - False
+  -
+    - "k_diff"
+    - True
+    - False
+  -
+    - "ebc"
+    - True
+    - False
+  -
+    - "l_attr_ebc"
+    - True
+    - False
+  -
+    - "l_inv_attr_ebc"
+    - True
+    - False
+  -
+    - "gamma_attr_ebc"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_ebc"
+    - True
+    - False
+global_topological_descriptors:
+  -
+    - "n"
+    - ""
+    - True
+    - False
+  -
+    - "m"
+    - ""
+    - True
+    - False
+  -
+    - "r"
+    - ""
+    - True
+    - False
+  -
+    - "sigma"
+    - ""
+    - True
+    - False
+  -
+    - "rho_graph"
+    - ""
+    - True
+    - False
+  -
+    - "glbl_avrg_kappa"
+    - ""
+    - True
+    - False
+  -
+    - "lambda_1"
+    - ""
+    - True
+    - False
+  -
+    - "l_attr_r"
+    - ""
+    - True
+    - False
+  -
+    - "l_inv_attr_r"
+    - ""
+    - True
+    - False
+  -
+    - "gamma_attr_r"
+    - ""
+    - True
+    - False
+  -
+    - "gamma_inv_attr_r"
+    - ""
+    - True
+    - False
+  -
+    - "l_attr_sigma"
+    - ""
+    - True
+    - False
+  -
+    - "l_inv_attr_sigma"
+    - ""
+    - True
+    - False
+  -
+    - "gamma_attr_sigma"
+    - ""
+    - True
+    - False
+  -
+    - "gamma_inv_attr_sigma"
+    - ""
+    - True
+    - False
+  -
+    - "l"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_inv"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_cmpnts"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_naive"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_cntr"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_inv"
+    - "mean"
+    - True
+    - False
+  -
+    - "k"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_nn_k"
+    - "mean"
+    - True
+    - False
+  -
+    - "k_diff"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_k_diff"
+    - "mean"
+    - True
+    - False
+  -
+    - "c"
+    - "mean"
+    - True
+    - False
+  -
+    - "kappa"
+    - "mean"
+    - True
+    - False
+  -
+    - "lcl_avrg_kappa"
+    - "mean"
+    - True
+    - False
+  -
+    - "epsilon"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_attr_epsilon"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_inv_attr_epsilon"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_attr_epsilon"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_epsilon"
+    - "mean"
+    - True
+    - False
+  -
+    - "d"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_attr_d"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_inv_attr_d"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_attr_d"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_d"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_d"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_l_attr_d"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_l_inv_attr_d"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_gamma_attr_d"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_gamma_inv_attr_d"
+    - "mean"
+    - True
+    - False
+  -
+    - "e"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_attr_e"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_inv_attr_e"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_attr_e"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_e"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_e"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_l_attr_e"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_l_inv_attr_e"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_gamma_attr_e"
+    - "mean"
+    - True
+    - False
+  -
+    - "avrg_gamma_inv_attr_e"
+    - "mean"
+    - True
+    - False
+  -
+    - "bc"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_attr_bc"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_inv_attr_bc"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_attr_bc"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_bc"
+    - "mean"
+    - True
+    - False
+  -
+    - "ebc"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_attr_ebc"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_inv_attr_ebc"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_attr_ebc"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_ebc"
+    - "mean"
+    - True
+    - False
+  -
+    - "cc"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_attr_cc"
+    - "mean"
+    - True
+    - False
+  -
+    - "l_inv_attr_cc"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_attr_cc"
+    - "mean"
+    - True
+    - False
+  -
+    - "gamma_inv_attr_cc"
+    - "mean"
+    - True
+    - False
+global_morphological_descriptors:
+  -
+    - "xi_corr"
+    - True
+    - False
+  -
+    - "n_fractal_dim"
+    - True
+    - False

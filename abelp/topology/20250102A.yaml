@@ -1,0 +1,21 @@
+dim:
+  - 2
+  - 3
+b:
+  - 1.0
+xi:
+  - 0.98
+rho_en:
+  - 0.85
+k:
+  - 4
+n:
+  - 100
+# en = list[list[p, en_min, en_max]]
+# type(en) = list[list[float, int, int]]
+en:
+  -
+    - 0.75
+    - 41
+    - 81
+config: 100

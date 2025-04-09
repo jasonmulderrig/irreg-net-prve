@@ -1,0 +1,13 @@
+defaults:
+  - topology: 20250102A
+  - descriptors: 20250102A
+  - _self_
+label:
+  network: swidt
+  date: !!str 20250102
+  batch: A
+  scheme: prhd
+synthesis:
+  max_try: 500
+multiprocessing:
+  cpu_num: 8

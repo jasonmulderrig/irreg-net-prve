@@ -1,0 +1,8 @@
+hydra-core
+numpy
+scipy
+networkx[default]
+matplotlib
+ipython
+ipykernel
+ipympl
