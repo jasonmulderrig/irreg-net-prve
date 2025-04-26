@@ -1,4 +1,7 @@
-# Edited by jasonmulderrig on 2024-08-29
+# Edited by jasonmulderrig on 2025-04-25
+
+# DS_Store files
+.DS_Store
 
 ### Temporary files component of .gitignore
 *~
