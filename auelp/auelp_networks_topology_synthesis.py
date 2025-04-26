@@ -109,7 +109,7 @@ def main(cfg: auelpConfig) -> None:
         
         if np.shape(sample_config_params_prhd_n_neq_n)[0] == 0:
             print_str = (
-                "Success! prhd_n = n  for all auelp network parameters!"
+                "Success! prhd_n = n for all auelp network parameters!"
             )
             print(print_str, flush=True)
         elif np.shape(sample_config_params_prhd_n_neq_n)[0] > 0:

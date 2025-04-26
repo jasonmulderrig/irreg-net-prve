@@ -1,48 +1,20 @@
-from dataclasses import dataclass
 import numpy as np
+import omegaconf
 
-@dataclass
-class Labels:
-    network: str
-    date: str
-    batch: str
-    scheme: str
+def params_list_func(params_arr: np.ndarray) -> list[tuple]:
+    if params_arr.ndim == 1: return [tuple(params_arr)]
+    else: return list(map(tuple, params_arr))
 
-@dataclass
-class Topology:
-    dim: list[int]
-    b: list[float]
-    n: list[int]
-    eta_n: list[float]
-    config: int
-
-@dataclass
-class Synthesis:
-    max_try: int
-
-@dataclass
-class Descriptors:
-    local_topological_descriptors: list[list[str, bool, bool]]
-    global_topological_descriptors: list[list[str, str, bool, bool]]
-    global_morphological_descriptors: list[list[str, bool, bool]]
-
-@dataclass
-class Multiprocessing:
-    cpu_num: int
-
-@dataclass
-class voronoiConfig:
-    labels: Labels
-    topology: Topology
-    synthesis: Synthesis
-    descriptors: Descriptors
-    multiprocessing: Multiprocessing
-
-def params_arr_func(cfg: voronoiConfig) -> tuple[np.ndarray, int]:
-    dim_arr = np.asarray(cfg.topology.dim, dtype=int)
-    b_arr = np.asarray(cfg.topology.b)
-    n_arr = np.asarray(cfg.topology.n, dtype=int)
-    eta_n_arr = np.asarray(cfg.topology.eta_n)
+def params_arr_func(cfg) -> tuple[np.ndarray, int]:
+    try:
+        topology = cfg.topology
+    except omegaconf.errors.ConfigAttributeError:
+        topology = cfg.networks.voronoi.topology
+    
+    dim_arr = np.asarray(topology.dim, dtype=int)
+    b_arr = np.asarray(topology.b)
+    n_arr = np.asarray(topology.n, dtype=int)
+    eta_n_arr = np.asarray(topology.eta_n)
 
     dim_num = np.shape(dim_arr)[0]
     b_num = np.shape(b_arr)[0]
@@ -70,11 +42,16 @@ def params_arr_func(cfg: voronoiConfig) -> tuple[np.ndarray, int]:
     
     return params_arr, sample_num
 
-def sample_params_arr_func(cfg: voronoiConfig) -> tuple[np.ndarray, int]:
-    dim_arr = np.asarray(cfg.topology.dim, dtype=int)
-    b_arr = np.asarray(cfg.topology.b)
-    n_arr = np.asarray(cfg.topology.n, dtype=int)
-    eta_n_arr = np.asarray(cfg.topology.eta_n)
+def sample_params_arr_func(cfg) -> tuple[np.ndarray, int]:
+    try:
+        topology = cfg.topology
+    except omegaconf.errors.ConfigAttributeError:
+        topology = cfg.networks.voronoi.topology
+    
+    dim_arr = np.asarray(topology.dim, dtype=int)
+    b_arr = np.asarray(topology.b)
+    n_arr = np.asarray(topology.n, dtype=int)
+    eta_n_arr = np.asarray(topology.eta_n)
 
     dim_num = np.shape(dim_arr)[0]
     b_num = np.shape(b_arr)[0]
@@ -103,12 +80,17 @@ def sample_params_arr_func(cfg: voronoiConfig) -> tuple[np.ndarray, int]:
     
     return sample_params_arr, sample_num
 
-def sample_config_params_arr_func(cfg: voronoiConfig) -> tuple[np.ndarray, int]:
-    dim_arr = np.asarray(cfg.topology.dim, dtype=int)
-    b_arr = np.asarray(cfg.topology.b)
-    n_arr = np.asarray(cfg.topology.n, dtype=int)
-    eta_n_arr = np.asarray(cfg.topology.eta_n)
-    config_arr = np.arange(cfg.topology.config, dtype=int)
+def sample_config_params_arr_func(cfg) -> tuple[np.ndarray, int]:
+    try:
+        topology = cfg.topology
+    except omegaconf.errors.ConfigAttributeError:
+        topology = cfg.networks.voronoi.topology
+    
+    dim_arr = np.asarray(topology.dim, dtype=int)
+    b_arr = np.asarray(topology.b)
+    n_arr = np.asarray(topology.n, dtype=int)
+    eta_n_arr = np.asarray(topology.eta_n)
+    config_arr = np.arange(topology.config, dtype=int)
 
     dim_num = np.shape(dim_arr)[0]
     b_num = np.shape(b_arr)[0]
