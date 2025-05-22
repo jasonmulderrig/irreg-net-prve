@@ -5,27 +5,26 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 # Import modules
 import hydra
+from omegaconf import DictConfig
 import multiprocessing
 import random
-from helpers.multiprocessing_utils import (
+from src.helpers.multiprocessing_utils import (
     run_swidt_network_local_topological_descriptor,
     run_swidt_network_global_topological_descriptor,
     run_swidt_network_global_morphological_descriptor
 )
-from networks.swidt_networks_config import (
-    swidtConfig,
-    params_arr_func
-)
+from src.networks.swidt_networks_config import params_arr_func
 
-# Hydra ConfigStore initialization
-from hydra.core.config_store import ConfigStore
-cs = ConfigStore.instance()
-cs.store(name="config", node=swidtConfig)
-
-@hydra.main(version_base=None, config_path=".", config_name="swidt_networks_config")
-def main(cfg: swidtConfig) -> None:
+@hydra.main(
+        version_base=None,
+        config_path="../configs/networks/swidt",
+        config_name="swidt_networks")
+def main(cfg: DictConfig) -> None:
     _, sample_num = params_arr_func(cfg)
     b = cfg.topology.b[0]
+
+    ##### Calculate descriptors
+    print("Calculating descriptors", flush=True)
 
     local_topological_descriptor_args = (
         [

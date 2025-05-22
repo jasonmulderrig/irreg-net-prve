@@ -5,27 +5,26 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 # Import modules
 import hydra
+from omegaconf import DictConfig
 import multiprocessing
 import random
-from helpers.multiprocessing_utils import (
+from src.helpers.multiprocessing_utils import (
     run_voronoi_network_local_topological_descriptor,
     run_voronoi_network_global_topological_descriptor,
     run_voronoi_network_global_morphological_descriptor
 )
-from networks.voronoi_networks_config import (
-    voronoiConfig,
-    params_arr_func
-)
+from src.networks.voronoi_networks_config import params_arr_func
 
-# Hydra ConfigStore initialization
-from hydra.core.config_store import ConfigStore
-cs = ConfigStore.instance()
-cs.store(name="config", node=voronoiConfig)
-
-@hydra.main(version_base=None, config_path=".", config_name="voronoi_networks_config")
-def main(cfg: voronoiConfig) -> None:
+@hydra.main(
+        version_base=None,
+        config_path="../configs/networks/voronoi",
+        config_name="voronoi_networks")
+def main(cfg: DictConfig) -> None:
     _, sample_num = params_arr_func(cfg)
     b = cfg.topology.b[0]
+
+    ##### Calculate descriptors
+    print("Calculating descriptors", flush=True)
 
     local_topological_descriptor_args = (
         [

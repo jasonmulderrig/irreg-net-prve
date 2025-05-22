@@ -5,34 +5,29 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 # Import modules
 import hydra
+from omegaconf import DictConfig
 import multiprocessing
 import random
 import numpy as np
-from file_io.file_io import config_filename_str
-from helpers.multiprocessing_utils import (
+from src.file_io.file_io import config_filename_str
+from src.helpers.multiprocessing_utils import (
     run_swidt_L,
     run_initial_node_seeding,
     run_swidt_network_topology,
     run_swidt_network_edge_pruning_procedure
 )
-from networks.swidt_networks_config import (
-    swidtConfig,
+from src.networks.swidt_networks_config import (
+    params_list_func,
     sample_params_arr_func,
     sample_config_params_arr_func,
     sample_config_pruning_params_arr_func
 )
 
-# Hydra ConfigStore initialization
-from hydra.core.config_store import ConfigStore
-cs = ConfigStore.instance()
-cs.store(name="config", node=swidtConfig)
-
-def params_list_func(params_arr: np.ndarray) -> list[tuple]:
-    if params_arr.ndim == 1: return [tuple(params_arr)]
-    else: return list(map(tuple, params_arr))
-
-@hydra.main(version_base=None, config_path=".", config_name="swidt_networks_config")
-def main(cfg: swidtConfig) -> None:
+@hydra.main(
+        version_base=None,
+        config_path="../configs/networks/swidt",
+        config_name="swidt_networks")
+def main(cfg: DictConfig) -> None:
     # Gather arrays of configuration parameters
     sample_params_arr, _ = sample_params_arr_func(cfg)
     sample_config_params_arr, sample_config_num = sample_config_params_arr_func(

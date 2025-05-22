@@ -5,27 +5,26 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 # Import modules
 import hydra
+from omegaconf import DictConfig
 import multiprocessing
 import random
-from helpers.multiprocessing_utils import (
+from src.helpers.multiprocessing_utils import (
     run_delaunay_network_local_topological_descriptor,
     run_delaunay_network_global_topological_descriptor,
     run_delaunay_network_global_morphological_descriptor
 )
-from networks.delaunay_networks_config import (
-    delaunayConfig,
-    params_arr_func
-)
+from src.networks.delaunay_networks_config import params_arr_func
 
-# Hydra ConfigStore initialization
-from hydra.core.config_store import ConfigStore
-cs = ConfigStore.instance()
-cs.store(name="config", node=delaunayConfig)
-
-@hydra.main(version_base=None, config_path=".", config_name="delaunay_networks_config")
-def main(cfg: delaunayConfig) -> None:
+@hydra.main(
+        version_base=None,
+        config_path="../configs/networks/delaunay",
+        config_name="delaunay_networks")
+def main(cfg: DictConfig) -> None:
     _, sample_num = params_arr_func(cfg)
     b = cfg.topology.b[0]
+
+    ##### Calculate descriptors
+    print("Calculating descriptors", flush=True)
 
     local_topological_descriptor_args = (
         [
